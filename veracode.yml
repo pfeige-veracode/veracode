@@ -54,11 +54,16 @@ veracode_sca_scan:
       - synchronize
     target_branch:
       - default_branch
-  # If the break_build_on_error is set to true, the build will break if the scan failed to complete or with an error, no libraries were found, 
+  # If the break_build_on_error is set to true, the build will break if the scan failed to complete or with an error, no libraries were found,
   # or no build system was found and the error_message will be displayed.
   break_build_on_error: true
   break_build_policy_findings: true
   error_message: "Veracode SCA scan faced a problem. Please contact your Veracode administrator for more information."
+  fix_for_sca:
+    # Fix for SCA configuration
+    pull_request:
+      # Setting trigger to true will enable Fix for SCA on pull requests. Fix for SCA requires SCA scans to be executed on these pull requests.
+      trigger: true
   # If the trigger is set to true, a scan is triggered when you create an issue containing the commands value or add a comment containing the commands value to an issue.
   # Syntax to be used - COMMANDS_VALUE [branch: BRANCH_NAME]
   issues:
